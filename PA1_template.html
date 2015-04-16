@@ -121,7 +121,7 @@ stepsmean&lt;-<span class="kw">ddply</span>(activitydata,<span class="kw">c</spa
 <span class="co"># Only the steps variable column contains missing data</span>
 totalmissing&lt;-<span class="kw">sum</span>(<span class="kw">is.na</span>(activitydata$steps))</code></pre>
 <p>The total number of missing values in the dataset is: <strong>2304</strong></p>
-<p>The strategy used to fill in all of the missing values is to replace them with means for each interval across all days.</p>
+<p>Missing steps values are for entire days, so intra day interrpolation wouldn’t help. Consequenlty the simple strategy used to fill in all of the missing values is to replace them with means of corresponding intervals calculated across all days.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new data set with column containing interval means across all day</span>
 newdata&lt;-<span class="kw">join</span>(activitydata,stepsmean, <span class="dt">by =</span> <span class="st">&quot;interval&quot;</span>)
 <span class="co"># Replace missing values in step column with corresponding interval means</span>

@@ -91,7 +91,8 @@ totalmissing<-sum(is.na(activitydata$steps))
 
 The total number of missing values in the dataset is: **2304**
 
-The strategy used to fill in all of the missing values is to replace them with means for each interval across all days.
+Missing steps values are for entire days, so intra day interrpolation wouldn't help.
+Consequenlty the simple strategy used to fill in all of the missing values is to replace them with means of corresponding intervals calculated across all days. 
 
 
 ```r
